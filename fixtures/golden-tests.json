@@ -2,6 +2,115 @@
   "$schema": "./golden-tests.schema.json",
   "version": "1.0",
   "mcp_name": "Dominican Republic Law MCP",
-  "description": "Golden contract tests for the Dominican Republic Law MCP -- add tests after first ingestion",
-  "tests": []
+  "description": "Golden contract tests for the Dominican Republic Law MCP -- 605 laws, 2,194 provisions from consultoria.gov.do",
+  "tests": [
+    {
+      "id": "DO-001",
+      "category": "search",
+      "description": "Search for 'trabajo' returns results",
+      "tool": "search_legislation",
+      "input": {
+        "query": "trabajo",
+        "limit": 5
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "min_results": 1,
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "DO-002",
+      "category": "provision",
+      "description": "Get provision art2 from Código Trujillo de Trabajo",
+      "tool": "get_provision",
+      "input": {
+        "document_id": "do-ley-2920-codigo-trujillo-de-trabajo",
+        "provision_ref": "art2"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "DO-003",
+      "category": "search",
+      "description": "Search for 'propiedad' returns relevant provisions",
+      "tool": "search_legislation",
+      "input": {
+        "query": "propiedad",
+        "limit": 10
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "min_results": 1
+      }
+    },
+    {
+      "id": "DO-004",
+      "category": "currency",
+      "description": "Check currency of Código Trujillo de Trabajo",
+      "tool": "check_currency",
+      "input": {
+        "document_id": "do-ley-2920-codigo-trujillo-de-trabajo"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "text_contains": ["in_force"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "DO-005",
+      "category": "stance",
+      "description": "Build legal stance on 'justicia militar'",
+      "tool": "build_legal_stance",
+      "input": {
+        "query": "justicia militar",
+        "limit": 5
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "DO-006",
+      "category": "sources",
+      "description": "List sources returns metadata",
+      "tool": "list_sources",
+      "input": {},
+      "assertions": {
+        "result_not_empty": true,
+        "text_contains": ["consultoria"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "DO-007",
+      "category": "validation",
+      "description": "Validate citation for Código de Trabajo",
+      "tool": "validate_citation",
+      "input": {
+        "citation": "Artículo 2, Código Trujillo de Trabajo"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "DO-008",
+      "category": "edge_case",
+      "description": "Handle nonexistent document gracefully",
+      "tool": "get_provision",
+      "input": {
+        "document_id": "nonexistent-doc-12345"
+      },
+      "assertions": {
+        "handles_gracefully": true
+      }
+    }
+  ]
 }

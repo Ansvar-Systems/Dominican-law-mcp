@@ -4,29 +4,31 @@ mcp_name: "Dominican Republic Law MCP"
 jurisdiction: "DO"
 
 sources:
-  - name: "Dominican Republic Official Legal Database"
-    authority: "Government of Dominican Republic"
-    official_portal: "https://consultoria.gov.do"
-    canonical_identifier: "TBD"
-    retrieval_method: "HTML"
-    api_documentation: "N/A"
-    update_frequency: "TBD"
-    last_ingested: "PENDING_FIRST_INGEST"
+  - name: "Consultoría Jurídica del Poder Ejecutivo"
+    authority: "Consultoría Jurídica del Poder Ejecutivo de la República Dominicana"
+    official_portal: "https://www.consultoria.gov.do/consulta/"
+    canonical_identifier: "do-ley"
+    retrieval_method: "PDF (pdftotext extraction)"
+    api_documentation: "ASP.NET MVC search form with CSRF token"
+    update_frequency: "As laws are enacted"
+    last_ingested: "2026-02-28"
     license_or_terms:
       type: "Government Publication"
-      url: "https://consultoria.gov.do"
+      url: "https://www.consultoria.gov.do"
       summary: "Official government legal database; legislation is public domain as government publication"
     coverage:
-      scope: "TBD -- update after census"
-      limitations: "TBD -- update after census"
+      scope: "12,480 laws enumerated (1855-1997), 600 ingested for initial database build"
+      limitations: "PDF-based extraction; older scanned documents may have OCR quality issues; initial ingestion covers first 600 laws"
     languages:
-      - "en"
+      - "es"
 
 data_freshness:
   automated_checks: false
-  check_frequency: "TBD"
-  last_verified: "2026-02-27"
+  check_frequency: "monthly"
+  last_verified: "2026-02-28"
 
 # Notes:
-# - Source URL: consultoria.gov.do
-# - Update this file after completing census and first ingestion
+# - Source: consultoria.gov.do (Consultoría Jurídica del Poder Ejecutivo)
+# - 12,480 laws in census, 600 ingested, 2,194 provisions
+# - PDF downloads via ASP.NET MVC endpoint with session cookies
+# - Spanish-language articles in "ARTICULO lo.-" and "Artículo 1.-" formats
