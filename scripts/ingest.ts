@@ -42,7 +42,7 @@ const CENSUS_PATH = path.resolve(__dirname, '../data/census.json');
 
 const BASE_URL = 'https://www.consultoria.gov.do';
 const USER_AGENT = 'dominican-law-mcp/1.0 (https://github.com/Ansvar-Systems/dominican-law-mcp; hello@ansvar.ai)';
-const MIN_DELAY_MS = 500;
+const MIN_DELAY_MS = 200;
 
 /* ---------- Types ---------- */
 
@@ -136,6 +136,9 @@ async function downloadPdf(url: string, outputPath: string, cookies: string): Pr
   await new Promise(resolve => setTimeout(resolve, MIN_DELAY_MS));
 
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60000); // 60s timeout
+
     const response = await fetch(url, {
       headers: {
         'User-Agent': USER_AGENT,
@@ -144,14 +147,25 @@ async function downloadPdf(url: string, outputPath: string, cookies: string): Pr
         'Referer': `${BASE_URL}/consulta/`,
       },
       redirect: 'follow',
+      signal: controller.signal,
     });
+
+    clearTimeout(timeout);
 
     if (response.status !== 200) {
       console.log(` HTTP ${response.status}`);
       return false;
     }
 
-    const buffer = Buffer.from(await response.arrayBuffer());
+    // Read body with timeout
+    const bodyController = new AbortController();
+    const bodyTimeout = setTimeout(() => bodyController.abort(), 60000); // 60s for body
+    let buffer: Buffer;
+    try {
+      buffer = Buffer.from(await response.arrayBuffer());
+    } finally {
+      clearTimeout(bodyTimeout);
+    }
 
     // Verify it's actually a PDF
     if (buffer.length < 100 || !buffer.subarray(0, 5).toString().startsWith('%PDF')) {
@@ -201,7 +215,7 @@ async function main(): Promise<void> {
 
   // Get session cookies for downloads
   process.stdout.write('  Obtaining session cookies... ');
-  const cookies = await getSessionCookies();
+  let cookies = await getSessionCookies();
   console.log('OK');
   console.log('');
 
@@ -312,6 +326,16 @@ async function main(): Promise<void> {
     if (processed % 50 === 0) {
       writeCensus(census, censusMap);
       console.log(`  [checkpoint] Census updated at ${processed}/${acts.length}`);
+    }
+
+    // Refresh session cookies every 500 laws to prevent expiry
+    if (processed % 500 === 0 && processed > 0) {
+      try {
+        cookies = await getSessionCookies();
+        console.log('  [session] Cookies refreshed');
+      } catch {
+        console.log('  [session] Cookie refresh failed, continuing with existing cookies');
+      }
     }
   }
 

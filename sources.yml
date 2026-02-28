@@ -17,8 +17,8 @@ sources:
       url: "https://www.consultoria.gov.do"
       summary: "Official government legal database; legislation is public domain as government publication"
     coverage:
-      scope: "12,480 laws enumerated (1855-1997), 600 ingested for initial database build"
-      limitations: "PDF-based extraction; older scanned documents may have OCR quality issues; initial ingestion covers first 600 laws"
+      scope: "12,250 laws enumerated, 12,244 ingested (99.95%), 89,508 provisions, 138 definitions"
+      limitations: "PDF-based extraction; 6 laws return HTTP 500 from government server; older scanned documents may have OCR quality issues; some historic laws yield zero parsed provisions due to image-only PDFs"
     languages:
       - "es"
 
@@ -29,6 +29,7 @@ data_freshness:
 
 # Notes:
 # - Source: consultoria.gov.do (Consultoría Jurídica del Poder Ejecutivo)
-# - 12,480 laws in census, 600 ingested, 2,194 provisions
+# - 12,250 laws in census, 12,244 ingested (6 inaccessible HTTP 500), 89,508 provisions, 138 definitions
 # - PDF downloads via ASP.NET MVC endpoint with session cookies
 # - Spanish-language articles in "ARTICULO lo.-" and "Artículo 1.-" formats
+# - Database: 205 MB SQLite
