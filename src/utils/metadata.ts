@@ -32,12 +32,12 @@ export function generateResponseMetadata(
   }
 
   return {
-    data_source: 'Dominican Republic Law (consultoria.gov.do) — National Council for Law Reporting',
-    jurisdiction: 'KE',
+    data_source: 'Dominican Republic Law (consultoria.gov.do) — Consultoría Jurídica del Poder Ejecutivo',
+    jurisdiction: 'DO',
     disclaimer:
-      'This data is sourced from Dominican Republic Law under Government Open Data principles. ' +
-      'The authoritative versions are in English. Swahili translations may be available for some documents. ' +
-      'Always verify with the official Dominican Republic Law portal (consultoria.gov.do).',
+      'This data is sourced from the Consultoría Jurídica del Poder Ejecutivo of the Dominican Republic. ' +
+      'The authoritative versions are maintained by the official legal portal (consultoria.gov.do). ' +
+      'Always verify with the official Dominican Republic legal portal (consultoria.gov.do).',
     freshness,
   };
 }
