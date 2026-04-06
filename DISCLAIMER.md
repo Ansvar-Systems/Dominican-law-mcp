@@ -27,7 +27,7 @@ If you are a lawyer, legal researcher, or other legal professional:
 
 **YOU MUST VERIFY EVERYTHING.** Do not cite, quote, or rely on any provision, case law, or legal interpretation from this Tool without:
 
-1. Checking the official source (Dominican Republic Law Reports (dominican republiclaw.org), Dominican Republic Gazette)
+1. Checking the official source (Consultoría Jurídica del Poder Ejecutivo (consultoria.gov.do), Gaceta Oficial)
 2. Verifying the provision is currently in force and has not been amended
 3. Reading the full context of cited provisions
 4. Consulting case law and preparatory works for interpretation
@@ -51,7 +51,7 @@ This Tool aggregates data from official Dominican Republic legal databases. Howe
 
 For professional legal work, **always cross-check with commercial legal databases** such as:
 
-- Dominican Republic Law, LexisNexis
+- LexisNexis
 
 These services provide editorial oversight, comprehensive annotations, and professional-grade currency guarantees that this Tool **cannot** provide.
 
@@ -168,7 +168,7 @@ Using this Tool does not reduce your professional obligations to:
 ## Recommended Workflow for Professional Use
 
 1. **Initial Research**: Use Tool for preliminary research and hypothesis generation
-2. **Official Verification**: Cross-check ALL results with official sources (Dominican Republic Law Reports (dominican republiclaw.org), Dominican Republic Gazette)
+2. **Official Verification**: Cross-check ALL results with official sources (Consultoría Jurídica del Poder Ejecutivo (consultoria.gov.do), Gaceta Oficial)
 3. **Commercial Databases**: Use professional legal databases for authoritative, annotated versions
 4. **Professional Judgment**: Apply independent legal analysis and professional judgment
 5. **Document Sources**: Cite official sources in legal work, not this Tool

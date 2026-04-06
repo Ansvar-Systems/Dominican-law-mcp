@@ -26,7 +26,7 @@ Dominican Republic Law MCP server providing Dominican legislation search via Mod
 - Every tool returns `ToolResponse<T>` with `results` + `_metadata` (freshness, disclaimer)
 - Tool descriptions are written for LLM agents -- explain WHEN and WHY to use each tool
 - Capability-gated tools only appear in `tools/list` when their DB tables exist
-- Dominican Republic uses "Section N" for Acts and "Article N" for the Constitution
+- Dominican Republic uses "Artículo N" for both statutes and the Constitution (civil law system)
 
 ## Testing
 
@@ -50,21 +50,21 @@ Dominican Republic Law MCP server providing Dominican legislation search via Mod
 
 ## Data Source
 
-- **Dominican Republic Law** (dominican republiclaw.org) -- National Council for Law Reporting
+- **Consultoría Jurídica del Poder Ejecutivo** (consultoria.gov.do) -- official Dominican Republic legal portal
 - **License:** Government Open Data
-- **Languages:** English (en) is the primary legal language; Swahili (sw) for some documents
-- **Coverage:** All Acts of Parliament, subsidiary legislation, Constitution of Dominican Republic 2010, selected case law
+- **Languages:** Spanish (es) is the primary legal language
+- **Coverage:** All statutes and decrees, subsidiary legislation, Constitution of the Dominican Republic (2010), Gaceta Oficial, selected case law
 
 ## Dominican Republic-Specific Notes
 
-- Dominican Republic uses a common law legal system inherited from British colonial administration
-- The Constitution of Dominican Republic 2010 is the supreme law (Article 2)
-- Legislation is identified by Act title + year (e.g., "Data Protection Act 2019")
-- Citations follow the pattern: "Section N, [Act Title Year]" or shorthand "s N"
-- For the Constitution: "Article N, Constitution of Dominican Republic 2010"
-- The Data Protection Act 2019 was significantly influenced by EU GDPR
-- Some sections of the Computer Misuse and Cybercrimes Act 2018 are suspended by court order
-- The Office of the Data Protection Commissioner (ODPC) is the data protection supervisory authority
+- Dominican Republic uses a civil law legal system based on the Napoleonic Code (French legal tradition)
+- The Constitution of the Dominican Republic (2010) is the supreme law
+- Legislation is identified by law number and year (e.g., "Ley 172-13" for the data protection law)
+- Citations follow the pattern: "Artículo N, [Ley/Decreto/Reglamento]"
+- For the Constitution: "Artículo N, Constitución de la República Dominicana 2010"
+- Ley 172-13 on personal data protection was influenced by international data protection standards
+- The Instituto Nacional de Protección de Datos Personales (INPDP) is the data protection supervisory authority
+- Dominican Republic courts include the Suprema Corte de Justicia and the Tribunal Constitucional
 
 ## Deployment
 

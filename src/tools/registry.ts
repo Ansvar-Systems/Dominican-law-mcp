@@ -23,6 +23,7 @@ import { searchEUImplementations, type SearchEUImplementationsInput } from './se
 import { getProvisionEUBasis, type GetProvisionEUBasisInput } from './get-provision-eu-basis.js';
 import { validateEUCompliance, type ValidateEUComplianceInput } from './validate-eu-compliance.js';
 import { listSources } from './list-sources.js';
+import { checkDataFreshness } from './check-data-freshness.js';
 import { getAbout, type AboutContext } from './about.js';
 import { detectCapabilities, upgradeMessage } from '../capabilities.js';
 export type { AboutContext } from './about.js';
@@ -39,10 +40,19 @@ const LIST_SOURCES_TOOL: Tool = {
   name: 'list_sources',
   description:
     'Returns detailed provenance metadata for all data sources used by this server, ' +
-    'including Dominican Republic Law (National Council for Law Reporting). ' +
+    'including Consultoría Jurídica del Poder Ejecutivo de la República Dominicana (consultoria.gov.do). ' +
     'Use this to understand what data is available, its authority, coverage scope, and known limitations. ' +
     'Also returns dataset statistics (document counts, provision counts) and database build timestamp. ' +
     'Call this FIRST when you need to understand what Dominican legal data this server covers.',
+  inputSchema: { type: 'object', properties: {} },
+};
+
+const CHECK_DATA_FRESHNESS_TOOL: Tool = {
+  name: 'check_data_freshness',
+  description:
+    'Check data freshness for each source. Reports staleness and provides update instructions. ' +
+    'Returns the database build timestamp, age in days, and a fresh/stale/unknown status per source. ' +
+    'Use this to verify that the data is current before relying on search results for time-sensitive legal research.',
   inputSchema: { type: 'object', properties: {} },
 };
 
@@ -332,6 +342,7 @@ export function buildTools(
   });
 
   tools.push(LIST_SOURCES_TOOL);
+  tools.push(CHECK_DATA_FRESHNESS_TOOL);
 
   if (context) {
     tools.push(ABOUT_TOOL);
@@ -393,6 +404,9 @@ export function registerTools(
           break;
         case 'list_sources':
           result = await listSources(db);
+          break;
+        case 'check_data_freshness':
+          result = await checkDataFreshness(db);
           break;
         case 'about':
           if (context) {
