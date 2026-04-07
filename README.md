@@ -37,12 +37,12 @@ This MCP server makes Dominican Republic law **searchable, cross-referenceable, 
 
 > Connect directly to the hosted version -- zero dependencies, nothing to install.
 
-**Endpoint:** `https://dominican-law-mcp.vercel.app/mcp`
+**Endpoint:** `https://mcp.ansvar.eu/law-do/mcp`
 
 | Client | How to Connect |
 |--------|---------------|
 | **Claude.ai** | Settings > Connectors > Add Integration > paste URL |
-| **Claude Code** | `claude mcp add dominican-law --transport http https://dominican-law-mcp.vercel.app/mcp` |
+| **Claude Code** | `claude mcp add dominican-law --transport http https://mcp.ansvar.eu/law-do/mcp` |
 | **Claude Desktop** | Add to config (see below) |
 | **GitHub Copilot** | Add to VS Code settings (see below) |
 
@@ -53,7 +53,7 @@ This MCP server makes Dominican Republic law **searchable, cross-referenceable, 
   "mcpServers": {
     "dominican-law": {
       "type": "url",
-      "url": "https://dominican-law-mcp.vercel.app/mcp"
+      "url": "https://mcp.ansvar.eu/law-do/mcp"
     }
   }
 }
@@ -66,7 +66,7 @@ This MCP server makes Dominican Republic law **searchable, cross-referenceable, 
   "github.copilot.chat.mcp.servers": {
     "dominican-law": {
       "type": "http",
-      "url": "https://dominican-law-mcp.vercel.app/mcp"
+      "url": "https://mcp.ansvar.eu/law-do/mcp"
     }
   }
 }
