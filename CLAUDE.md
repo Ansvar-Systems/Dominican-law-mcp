@@ -50,21 +50,20 @@ Dominican Republic Law MCP server providing Dominican legislation search via Mod
 
 ## Data Source
 
-- **Dominican Republic Law** (dominican republiclaw.org) -- National Council for Law Reporting
+- **Dominican Republic Law** (consultoria.gov.do) -- Consultoría Jurídica del Poder Ejecutivo de la República Dominicana
 - **License:** Government Open Data
-- **Languages:** English (en) is the primary legal language; Swahili (sw) for some documents
-- **Coverage:** All Acts of Parliament, subsidiary legislation, Constitution of Dominican Republic 2010, selected case law
+- **Languages:** Spanish (es) is the primary legal language
+- **Coverage:** All Dominican legislation (leyes, decretos, reglamentos), Constitution of the Dominican Republic 2010, selected jurisprudence
 
 ## Dominican Republic-Specific Notes
 
-- Dominican Republic uses a common law legal system inherited from British colonial administration
-- The Constitution of Dominican Republic 2010 is the supreme law (Article 2)
-- Legislation is identified by Act title + year (e.g., "Data Protection Act 2019")
-- Citations follow the pattern: "Section N, [Act Title Year]" or shorthand "s N"
-- For the Constitution: "Article N, Constitution of Dominican Republic 2010"
-- The Data Protection Act 2019 was significantly influenced by EU GDPR
-- Some sections of the Computer Misuse and Cybercrimes Act 2018 are suspended by court order
-- The Office of the Data Protection Commissioner (ODPC) is the data protection supervisory authority
+- Dominican Republic uses a civil law legal system based on the Napoleonic Code
+- The Constitution of the Dominican Republic 2010 is the supreme law (Artículo 6)
+- Legislation is identified by type + number + year (e.g., "Ley 172-13", "Decreto 95-22")
+- Citations follow the pattern: "Artículo N, [Ley/Decreto]" or shorthand "Art. N"
+- For the Constitution: "Artículo N, Constitución de la República Dominicana 2010"
+- Ley 172-13 on personal data protection was influenced by EU GDPR principles
+- The Instituto Nacional de Protección de Datos Personales (INPDP) is the data protection supervisory authority
 
 ## Deployment
 

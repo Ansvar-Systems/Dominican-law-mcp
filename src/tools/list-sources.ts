@@ -45,14 +45,14 @@ export async function listSources(
       sources: [
         {
           name: 'Dominican Republic Law',
-          authority: 'National Council for Law Reporting (Dominican Republic Law)',
+          authority: 'Consultoría Jurídica del Poder Ejecutivo de la República Dominicana',
           url: 'http://consultoria.gov.do',
           license: 'Government Open Data',
           coverage:
-            'All Acts of Parliament (revised edition), subsidiary legislation, ' +
-            'the Constitution of Dominican Republic (2010), Dominican Republic Gazette notices, and selected case law ' +
-            'from superior courts including the Supreme Court, Court of Appeal, and High Court',
-          languages: ['en', 'sw'],
+            'All Dominican Republic legislation (leyes, decretos, reglamentos), ' +
+            'the Constitution of the Dominican Republic (2010), and selected jurisprudence ' +
+            'from superior courts including the Tribunal Constitucional and Suprema Corte de Justicia',
+          languages: ['es'],
         },
       ],
       database: {
