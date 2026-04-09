@@ -102,7 +102,15 @@ Check whether a statute or provision is currently in force.
 
 ---
 
-## 8. about
+## 8. check_data_freshness
+
+Check data freshness for each source. Reports staleness and provides update instructions.
+
+**Returns:** Database build timestamp, age in days, and fresh/stale/unknown status per source.
+
+---
+
+## 9. about
 
 Server metadata, dataset statistics, and data freshness.
 
